@@ -1,0 +1,2974 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../structure/">
+      
+      
+        <link rel="next" href="../data/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Equations - PowerSystemModel v1.2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#equations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PowerSystemModel v1.2" class="md-header__button md-logo" aria-label="PowerSystemModel v1.2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2h10l-3.5 7H17l-7 13v-8H7zm2 2v8h3v2.66L14 11h-3.76l3.52-7z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PowerSystemModel v1.2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Equations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shotaromo/PowerSystemModel" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shotaromo/PowerSystemModel
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../structure/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Model structure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Equations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../data/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Model data
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PowerSystemModel v1.2" class="md-nav__button md-logo" aria-label="PowerSystemModel v1.2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2h10l-3.5 7H17l-7 13v-8H7zm2 2v8h3v2.66L14 11h-3.76l3.52-7z"/></svg>
+
+    </a>
+    PowerSystemModel v1.2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shotaromo/PowerSystemModel" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shotaromo/PowerSystemModel
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model structure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model structure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.75 20.85c1.78-.7 1.39-2.63.49-3.85-.89-1.25-2.12-2.11-3.36-2.94A9.8 9.8 0 0 1 4.54 12c-.28-.33-.85-.94-.27-1.06.59-.12 1.61.46 2.13.68.91.38 1.81.82 2.65 1.34l1.01-1.7C8.5 10.23 6.5 9.32 4.64 9.05c-1.06-.16-2.18.06-2.54 1.21-.32.99.19 1.99.77 2.77 1.37 1.83 3.5 2.71 5.09 4.29.34.33.75.72.95 1.18.21.44.16.47-.31.47-1.24 0-2.79-.97-3.8-1.61l-1.01 1.7c1.53.94 4.09 2.41 5.96 1.79m9.21-13.52L13.29 13H11v-2.29l5.67-5.68zm3.4-.78c-.01.3-.32.61-.64.92L19.2 10l-.87-.87 2.6-2.59-.59-.59-.67.67-2.29-2.29 2.15-2.15c.24-.24.63-.24.86 0l1.43 1.43c.24.22.24.62 0 .86-.21.21-.41.41-.41.61-.02.2.18.42.38.59.29.3.58.58.57.88"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Equations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.75 20.85c1.78-.7 1.39-2.63.49-3.85-.89-1.25-2.12-2.11-3.36-2.94A9.8 9.8 0 0 1 4.54 12c-.28-.33-.85-.94-.27-1.06.59-.12 1.61.46 2.13.68.91.38 1.81.82 2.65 1.34l1.01-1.7C8.5 10.23 6.5 9.32 4.64 9.05c-1.06-.16-2.18.06-2.54 1.21-.32.99.19 1.99.77 2.77 1.37 1.83 3.5 2.71 5.09 4.29.34.33.75.72.95 1.18.21.44.16.47-.31.47-1.24 0-2.79-.97-3.8-1.61l-1.01 1.7c1.53.94 4.09 2.41 5.96 1.79m9.21-13.52L13.29 13H11v-2.29l5.67-5.68zm3.4-.78c-.01.3-.32.61-.64.92L19.2 10l-.87-.87 2.6-2.59-.59-.59-.67.67-2.29-2.29 2.15-2.15c.24-.24.63-.24.86 0l1.43 1.43c.24.22.24.62 0 .86-.21.21-.41.41-.41.61-.02.2.18.42.38.59.29.3.58.58.57.88"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sets-and-indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sets and Indices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-operation-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator operation &amp; capacity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-operation-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link operation &amp; capacity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-operation-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage operation &amp; capacity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nodal-power-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nodal power balance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-stock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology stock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#energy-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Energy supply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emission
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Equations
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="equations">Equations</h1>
+<div class="admonition note">
+<p class="admonition-title">Notation conventions</p>
+<p>Here, capital characters refer to endogenous variables, while lowercase characters indicate exogenous parameters.</p>
+</div>
+<details class="tip">
+<summary>GAMS symbol naming conventions</summary>
+<p>The model follows systematic naming rules for GAMS symbols to ensure consistency and readability:</p>
+<p><strong>Decision variables (Documentation ↔ GAMS correspondence):</strong></p>
+<ul>
+<li>All decision variables start with <code>V</code> in both documentation and GAMS implementation</li>
+<li>Documentation uses generic notation <span class="arithmatex">\(VX\)</span>, <span class="arithmatex">\(VS\)</span>, <span class="arithmatex">\(VR\)</span>, <span class="arithmatex">\(VC\)</span>, and <span class="arithmatex">\(VP\)</span> with technology-agnostic subscripts</li>
+<li>GAMS uses technology-specific prefixes where the second letter indicates technology type:<ul>
+<li><code>VG*</code> for generators: <span class="arithmatex">\(VX_{n,i,r,t}\)</span> → <code>VG(N,I,R,T)</code>, <span class="arithmatex">\(VS_{n,i,r}\)</span> → <code>VGS(N,I,R)</code>, <span class="arithmatex">\(VR_{n,i,r}\)</span> → <code>VGR(N,I,R)</code>, <span class="arithmatex">\(VC_{n,i,r_0,r_1,y}\)</span> → <code>VGC(N,I,R0,R1,Y)</code>, <span class="arithmatex">\(VP_{n,i,r}\)</span> → <code>VGP(N,I,R)</code></li>
+<li><code>VF*</code> for links: <span class="arithmatex">\(VX^+_{l,t}\)</span> → <code>VFF(L,T)</code>, <span class="arithmatex">\(VX^-_{l,t}\)</span> → <code>VFB(L,T)</code>, <span class="arithmatex">\(VS_l\)</span> → <code>VFS(L)</code>, <span class="arithmatex">\(VR_l\)</span> → <code>VFR(L)</code>, <span class="arithmatex">\(VC_{l_0,l_1,y}\)</span> → <code>VFC(L0,L1,Y)</code>, <span class="arithmatex">\(VP_l\)</span> → <code>VFP(L)</code></li>
+<li><code>VE*</code> for storage (energy): <span class="arithmatex">\(VE_{n,i,s,t}\)</span> → <code>VE(N,I,S,T)</code>, <span class="arithmatex">\(VS_{n,i,s}\)</span> → <code>VES(N,I,S)</code>, <span class="arithmatex">\(VR_{n,i,s}\)</span> → <code>VER(N,I,S)</code>, <span class="arithmatex">\(VC_{n,i,s_0,s_1,y}\)</span> → <code>VEC(N,I,S0,S1,Y)</code>, <span class="arithmatex">\(VP_{n,i,s}\)</span> → <code>VEP(N,I,S)</code></li>
+<li><code>VH*</code> for storage (power): <span class="arithmatex">\(VX_{n,i,s,t}\)</span> → <code>VH(N,I,S,T)</code></li>
+<li><code>VP*</code> for energy supply: <span class="arithmatex">\(VP_{n,i,k}\)</span> → <code>VP(N,I,K)</code></li>
+<li><code>VQ*</code> for emissions: <span class="arithmatex">\(VQ_{n,i,g}\)</span> → <code>VQ(N,I,G)</code></li>
+</ul>
+</li>
+<li>Third letter in GAMS indicates variable type: <code>S</code> (stock/capacity), <code>R</code> (new installation/renewal), <code>C</code> (retrofit), <code>P</code> (replacement), <code>X</code> (operation/dispatch), <code>F</code>/<code>B</code> (forward/backward flow)</li>
+<li>Special case: total cost uses <span class="arithmatex">\(VTC\)</span> in the documentation and <code>VTC</code> in GAMS</li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>Technology-specific parameters start with technology letter: <code>g</code> (generator), <code>f</code> (link), <code>e</code> (storage)</li>
+<li>Cost parameters: <code>cc</code> (capital cost), <code>foc</code> (fixed O&amp;M cost), <code>voc</code> (variable O&amp;M cost), <code>rc</code> (retrofit cost), <code>pc</code> (replacement cost), <code>acc</code> (annualized capital cost), <code>arc</code> (annualized retrofit cost), <code>apc</code> (annualized replacement cost)</li>
+<li>Technical parameters: <code>mn</code> (minimum), <code>mx</code> (maximum), <code>fx</code> (fixed), <code>lt</code> (lifetime), <code>alp</code> (alpha/discount rate), <code>eta</code> (efficiency)</li>
+<li>Stock parameters: <code>sc</code> (stock by vintage), <code>ssc</code> (surviving stock), <code>sr</code> (replaceable stock), <code>ssr</code> (surviving replaceable stock)</li>
+<li>Examples: <code>gacc</code> = generator + annualized capital cost, <code>gmx</code> = generator + maximum, <code>eeta</code> = storage (energy) + efficiency (self-discharge rate)</li>
+</ul>
+<p><strong>Sets and mappings:</strong></p>
+<ul>
+<li>Aggregation sets start with <code>M</code> followed by base set letter: <code>MR</code> (generator group), <code>ME</code> (region-sector pair), <code>MK</code> (energy type group), etc.</li>
+<li>Mapping sets start with <code>M_</code> followed by set names: <code>M_MR</code> (mapping from MR to R), <code>M_ME</code> (mapping from ME to N,I)</li>
+<li>Flag sets start with <code>FL_</code>: <code>FL_IR</code> (valid region-sector-technology combinations), <code>FL_IRT</code> (valid region-sector-technology-timeslice combinations)</li>
+</ul>
+</details>
+<h2 id="sets-and-indices">Sets and Indices</h2>
+<p>The model uses base indices for different dimensions, and aggregation sets that group elements from these base indices.</p>
+<h3 id="base-indices">Base indices</h3>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(n \in N\)</span></td>
+<td><code>N</code></td>
+<td>region</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i \in I\)</span></td>
+<td><code>I</code></td>
+<td>sector</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(r \in R\)</span></td>
+<td><code>R</code></td>
+<td>generator technology</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(l \in L\)</span></td>
+<td><code>L</code></td>
+<td>link (transmission/distribution)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s \in S\)</span></td>
+<td><code>S</code></td>
+<td>storage technology</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t \in T\)</span></td>
+<td><code>T</code></td>
+<td>timeslice</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k \in K\)</span></td>
+<td><code>K</code></td>
+<td>energy type</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(g \in G\)</span></td>
+<td><code>G</code></td>
+<td>emission type</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y \in Y\)</span></td>
+<td><code>Y</code></td>
+<td>year (all years including past and future); simulation period is defined by subset <code>YEAR(Y)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="aggregation-and-mapping">Aggregation and mapping</h3>
+<p>Aggregation sets define grouped constraints for applying restrictions at the aggregated level. The table below summarizes aggregation sets, their group indices, and GAMS implementation:</p>
+<table>
+<thead>
+<tr>
+<th>Group Notation</th>
+<th>Description</th>
+<th>GAMS Set</th>
+<th>GAMS Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(m_r \in MR\)</span></td>
+<td>Generator technology groups (<span class="arithmatex">\(MR \subseteq R\)</span>)</td>
+<td><code>MR</code></td>
+<td><code>M_MR(MR,R)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(m_l \in ML\)</span></td>
+<td>Link groups per node-sector</td>
+<td><code>ML</code></td>
+<td><code>M_IMLL(N,I,ML,L)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(m_e \in ME\)</span></td>
+<td>Node-sector groups (<span class="arithmatex">\(ME \subseteq N \times I\)</span>)</td>
+<td><code>ME</code></td>
+<td><code>M_ME(ME,N,I)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k_m \in MK\)</span></td>
+<td>Energy type groups (<span class="arithmatex">\(MK \subseteq K\)</span>)</td>
+<td><code>MK</code></td>
+<td><code>M_MK(MK,K)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(m_q \in MQ\)</span></td>
+<td>Node-sector groups for emissions (<span class="arithmatex">\(MQ \subseteq N \times I\)</span>)</td>
+<td><code>MQ</code></td>
+<td><code>M_MQ(MQ,N,I)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(g_m \in MG\)</span></td>
+<td>Emission gas groups (<span class="arithmatex">\(MG \subseteq G\)</span>)</td>
+<td><code>MG</code></td>
+<td><code>M_MG(MG,G)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(m_t \in MT\)</span></td>
+<td>Timeslice groups (<span class="arithmatex">\(MT \subseteq T\)</span>)</td>
+<td><code>MT</code></td>
+<td><code>M_MT(MT,T)</code></td>
+</tr>
+</tbody>
+</table>
+<p>In equations, group membership is denoted using mapping sets as subscripts. For example, <span class="arithmatex">\(\sum_{(n,i) \in ME_{m_e}}\)</span> sums over all node-sector pairs <span class="arithmatex">\((n,i)\)</span> that belong to energy group <span class="arithmatex">\(m_e\)</span>, and <span class="arithmatex">\(\sum_{k \in MK_{k_m}}\)</span> sums over all energy types <span class="arithmatex">\(k\)</span> that belong to energy type group <span class="arithmatex">\(k_m\)</span>.</p>
+<p>Retrofit feasibility is represented by dedicated mapping sets:</p>
+<table>
+<thead>
+<tr>
+<th>Retrofit Mapping</th>
+<th>Description</th>
+<th>GAMS Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(RC_{r_0,r_1}\)</span></td>
+<td>Feasible generator retrofit relation from <span class="arithmatex">\(r_0\)</span> to <span class="arithmatex">\(r_1\)</span></td>
+<td><code>M_RC(R0,R1)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(LC_{l_0,l_1}\)</span></td>
+<td>Feasible link retrofit relation from <span class="arithmatex">\(l_0\)</span> to <span class="arithmatex">\(l_1\)</span></td>
+<td><code>M_LC(L0,L1)</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(SC_{s_0,s_1}\)</span></td>
+<td>Feasible storage retrofit relation from <span class="arithmatex">\(s_0\)</span> to <span class="arithmatex">\(s_1\)</span></td>
+<td><code>M_SC(S0,S1)</code></td>
+</tr>
+</tbody>
+</table>
+<p>In the equations below, these relations are used as conditions in indexed sums; for example, <span class="arithmatex">\(\sum_{r_0:\,RC_{r_0,r}}\)</span> means summing over all origin technologies <span class="arithmatex">\(r_0\)</span> that can be retrofitted into destination technology <span class="arithmatex">\(r\)</span>.</p>
+<h3 id="timeslice-parameters">Timeslice parameters</h3>
+<p>Throughout this document, the following timeslice-related parameters are used:</p>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\omega\)</span></td>
+<td><code>wt(T)</code></td>
+<td>Timeslice weight (hours in each timeslice)</td>
+<td>hours</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Delta t\)</span></td>
+<td><code>rt(T)</code></td>
+<td>Timeslice granularity (hours per timeslice, used for ramping and storage dynamics)</td>
+<td>hours</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Delta y\)</span></td>
+<td><code>t_int</code></td>
+<td>Time interval between simulation years</td>
+<td>years</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the equations, <span class="arithmatex">\(\omega\)</span> and <span class="arithmatex">\(\Delta t\)</span> are often treated as constants across <span class="arithmatex">\(t\)</span> for readability. If time-varying weights or durations are used, the notation can be generalized by reintroducing the subscript <span class="arithmatex">\(t\)</span>. In the GAMS implementation, both <code>wt(T)</code> and <code>rt(T)</code> are indexed by timeslice <span class="arithmatex">\(t\)</span> to allow flexibility.</p>
+</div>
+<h2 id="objective-function">Objective function</h2>
+<h3 id="total-system-cost">Total system cost</h3>
+<p>The objective function minimizes total system cost <span class="arithmatex">\({VTC}\)</span>, expressed as the sum of CAPEX <span class="arithmatex">\({C^{\text{CAPEX}}}\)</span>, Fixed OPEX <span class="arithmatex">\({C^{\text{Fixed OPEX}}}\)</span>, and Variable OPEX <span class="arithmatex">\({C^{\text{Variable OPEX}}}\)</span> across all technologies, regions, and sectors.</p>
+<div class="arithmatex">\[
+{VTC} = {C^{\text{CAPEX}}} + {C^{\text{Fixed OPEX}}} + {C^{\text{Variable OPEX}}} \to \min
+\]</div>
+<p>Capital expenditure <span class="arithmatex">\({C^{\text{CAPEX}}}\)</span> is decomposed into new-installation cost <span class="arithmatex">\({C^{\text{CAPEX,new}}}\)</span>, retrofit cost <span class="arithmatex">\({C^{\text{CAPEX,retrofit}}}\)</span>, and replacement cost <span class="arithmatex">\({C^{\text{CAPEX,replace}}}\)</span>. The first term applies to newly added capacity, the second to technology conversion between vintages or technology classes, and the third to replacement of expired or replaceable stock.</p>
+<div class="arithmatex">\[
+{C^{\text{CAPEX}}} = {C^{\text{CAPEX,new}}} + {C^{\text{CAPEX,retrofit}}} + {C^{\text{CAPEX,replace}}}
+\]</div>
+<div class="arithmatex">\[
+{C^{\text{CAPEX,new}}} = \sum_{n,i,r}{c^{\text{new}}}_{n,i,r}\cdot {VR}_{n,i,r} + \sum_{l}{c^{\text{new}}}_{l}\cdot {VR}_{l} + \sum_{n,i,s}{c^{\text{new}}}_{n,i,s}\cdot {VR}_{n,i,s}
+\]</div>
+<div class="arithmatex">\[
+{C^{\text{CAPEX,retrofit}}} =
+\sum_{n,i,r_0,r_1,y}{c^{\text{retrofit}}}_{n,i,r_0,r_1,y}\cdot {VC}_{n,i,r_0,r_1,y}
++ \sum_{l_0,l_1,y}{c^{\text{retrofit}}}_{l_0,l_1,y}\cdot {VC}_{l_0,l_1,y}
++ \sum_{n,i,s_0,s_1,y}{c^{\text{retrofit}}}_{n,i,s_0,s_1,y}\cdot {VC}_{n,i,s_0,s_1,y}
+\]</div>
+<div class="arithmatex">\[
+{C^{\text{CAPEX,replace}}} = \sum_{n,i,r}{c^{\text{replace}}}_{n,i,r}\cdot {VP}_{n,i,r} + \sum_{l}{c^{\text{replace}}}_{l}\cdot {VP}_{l} + \sum_{n,i,s}{c^{\text{replace}}}_{n,i,s}\cdot {VP}_{n,i,s}
+\]</div>
+<p>Fixed operating expenditure <span class="arithmatex">\({C^{\text{Fixed OPEX}}}\)</span> is applied to installed stock variables. In the current implementation, stock-balance slack variables <span class="arithmatex">\(\delta^{\text{stock}}\)</span> are penalized with the same fixed-cost coefficients so that unresolved stock inconsistencies are reflected in the objective value.</p>
+<div class="arithmatex">\[
+{C^{\text{Fixed OPEX}}} =
+\sum_{n,i,r}{o^{\text{fix}}}_{n,i,r}\cdot \left({VS}_{n,i,r}+{\delta^{\text{stock}}}_{n,i,r}\right)
++ \sum_{l}{o^{\text{fix}}}_{l}\cdot \left({VS}_{l}+{\delta^{\text{stock}}}_{l}\right)
++ \sum_{n,i,s}{o^{\text{fix}}}_{n,i,s}\cdot \left({VS}_{n,i,s}+{\delta^{\text{stock}}}_{n,i,s}\right)
+\]</div>
+<p>Variable operating expenditure <span class="arithmatex">\({C^{\text{Variable OPEX}}}\)</span> is incurred only for operational variables, namely generator dispatch <span class="arithmatex">\({VX}_{n,i,r,t}\)</span> and link flow <span class="arithmatex">\({VX}^{+}_{l,t}, {VX}^{-}_{l,t}\)</span>. Storage charge and discharge power <span class="arithmatex">\({VX}_{n,i,s,t}\)</span> do not appear directly in this term in the current formulation.</p>
+<div class="arithmatex">\[
+{C^{\text{Variable OPEX}}} = \sum_{n,i,r,t}{\omega}\cdot {o^{\text{variable}}}_{n,i,r}\cdot {VX}_{n,i,r,t}
++ \sum_{l,t}{\omega}\cdot {o^{\text{variable}}}_{l}\cdot \left({VX}^{+}_{l,t}+{VX}^{-}_{l,t}\right)
+\]</div>
+<details>
+<summary><b>Parameters used in Total system cost</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(c^{\text{new}}_{n,i,r}\)</span></td>
+<td><code>gacc(N,I,R)</code></td>
+<td>Annualized capital cost - new installation</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{retrofit}}_{n,i,r_0,r_1,y}\)</span></td>
+<td><code>garc(N,I,R0,R1,Y)</code></td>
+<td>Annualized retrofit cost</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(o^{\text{fix}}_{n,i,r}\)</span></td>
+<td><code>gfoc(N,I,R)</code></td>
+<td>Fixed O&amp;M cost</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{replace}}_{n,i,r}\)</span></td>
+<td><code>gapc(N,I,R)</code></td>
+<td>Annualized capital cost - replacement</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(o^{\text{variable}}_{n,i,r}\)</span></td>
+<td><code>gvoc(N,I,R)</code></td>
+<td>Variable O&amp;M cost</td>
+<td>million USD/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{new}}_{l}\)</span></td>
+<td><code>facc(L)</code></td>
+<td>Annualized capital cost - new installation</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{retrofit}}_{l_0,l_1,y}\)</span></td>
+<td><code>farc(L0,L1,Y)</code></td>
+<td>Annualized retrofit cost</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(o^{\text{fix}}_{l}\)</span></td>
+<td><code>ffoc(L)</code></td>
+<td>Fixed O&amp;M cost</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{replace}}_{l}\)</span></td>
+<td><code>fapc(L)</code></td>
+<td>Annualized capital cost - replacement</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(o^{\text{variable}}_{l}\)</span></td>
+<td><code>fvoc(L)</code></td>
+<td>Variable O&amp;M cost</td>
+<td>million USD/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{new}}_{n,i,s}\)</span></td>
+<td><code>eacc(N,I,S)</code></td>
+<td>Annualized capital cost - new installation</td>
+<td>million USD/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{retrofit}}_{n,i,s_0,s_1,y}\)</span></td>
+<td><code>earc(N,I,S0,S1,Y)</code></td>
+<td>Annualized retrofit cost</td>
+<td>million USD/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(o^{\text{fix}}_{n,i,s}\)</span></td>
+<td><code>efoc(N,I,S)</code></td>
+<td>Fixed O&amp;M cost</td>
+<td>million USD/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{replace}}_{n,i,s}\)</span></td>
+<td><code>eapc(N,I,S)</code></td>
+<td>Annualized capital cost - replacement</td>
+<td>million USD/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega\)</span></td>
+<td><code>wt(T)</code></td>
+<td>Timeslice weight (hours in each timeslice)</td>
+<td>hours</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Total system cost</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VTC\)</span></td>
+<td><code>VTC</code></td>
+<td>Total system cost to be minimized</td>
+<td>million USD</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{n,i,r}\)</span></td>
+<td><code>VGR(N,I,R)</code></td>
+<td>New installation of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,r}\)</span></td>
+<td><code>VGS(N,I,R)</code></td>
+<td>Installed capacity of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VC_{n,i,r_0,r_1,y}\)</span></td>
+<td><code>VGC(N,I,R0,R1,Y)</code></td>
+<td>Retrofit flow between generator technologies</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{n,i,r}\)</span></td>
+<td><code>VGP(N,I,R)</code></td>
+<td>Replacement capacity of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,r,t}\)</span></td>
+<td><code>VG(N,I,R,T)</code></td>
+<td>Power output of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{l}\)</span></td>
+<td><code>VFR(L)</code></td>
+<td>New installation of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{l}\)</span></td>
+<td><code>VFS(L)</code></td>
+<td>Installed capacity of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VC_{l_0,l_1,y}\)</span></td>
+<td><code>VFC(L0,L1,Y)</code></td>
+<td>Retrofit flow between links</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{l}\)</span></td>
+<td><code>VFP(L)</code></td>
+<td>Replacement capacity of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX^{+}_{l,t}\)</span></td>
+<td><code>VFF(L,T)</code></td>
+<td>Forward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX^{-}_{l,t}\)</span></td>
+<td><code>VFB(L,T)</code></td>
+<td>Backward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{n,i,s}\)</span></td>
+<td><code>VER(N,I,S)</code></td>
+<td>New installation of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,s}\)</span></td>
+<td><code>VES(N,I,S)</code></td>
+<td>Installed energy capacity of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VC_{n,i,s_0,s_1,y}\)</span></td>
+<td><code>VEC(N,I,S0,S1,Y)</code></td>
+<td>Retrofit flow between storage technologies</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{n,i,s}\)</span></td>
+<td><code>VEP(N,I,S)</code></td>
+<td>Replacement capacity of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta^{\text{stock}}_{n,i,r}\)</span></td>
+<td><code>RES_GSCB(N,I,R)</code></td>
+<td>Slack variable for generator stock balance</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta^{\text{stock}}_{l}\)</span></td>
+<td><code>RES_FSCB(L)</code></td>
+<td>Slack variable for link stock balance</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta^{\text{stock}}_{n,i,s}\)</span></td>
+<td><code>RES_ESCB(N,I,S)</code></td>
+<td>Slack variable for storage stock balance</td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="annualization-of-capital-costs">Annualization of capital costs</h3>
+<p>New installation, retrofit, and replacement costs are annualized based on technology discount rate and lifetime. The equations below show the generator case as a representative example.</p>
+<p>For generators, annualized costs <span class="arithmatex">\({c^{\text{new}}}_{n,i,r}\)</span> and <span class="arithmatex">\({c^{\text{replace}}}_{n,i,r}\)</span> are computed from initial capital costs <span class="arithmatex">\({b^{\text{new}}}_{n,i,r}\)</span> and <span class="arithmatex">\({b^{\text{replace}}}_{n,i,r}\)</span> using discount rate <span class="arithmatex">\(\alpha_{n, i, r}\)</span> and lifetime <span class="arithmatex">\(\tau_{n, i, r}\)</span>:</p>
+<div class="arithmatex">\[
+{c^{\text{new}}}_{n, i, r} = {b^{\text{new}}}_{n, i, r} \cdot \frac{\alpha_{n, i, r} \cdot \left(1 + \alpha_{n, i, r}\right)^{\tau_{n, i, r}}}
+{\left(1 + \alpha_{n, i, r}\right)^{\tau_{n, i, r}}-1} \cdot \Delta y
+\]</div>
+<div class="arithmatex">\[
+{c^{\text{replace}}}_{n, i, r} = {b^{\text{replace}}}_{n, i, r} \cdot \frac{\alpha_{n, i, r} \cdot \left(1 + \alpha_{n, i, r}\right)^{\tau_{n, i, r}}}
+{\left(1 + \alpha_{n, i, r}\right)^{\tau_{n, i, r}}-1} \cdot \Delta y
+\]</div>
+<p>For retrofit, annualized retrofit cost <span class="arithmatex">\({c^{\text{retrofit}}}_{n,i,r_0,r_1,y}\)</span> uses retrofit cost coefficient <span class="arithmatex">\({b^{\text{retrofit}}}_{n,i,r_0,r_1}\)</span> together with destination discount rate <span class="arithmatex">\(\alpha_{n,i,r_1}\)</span> and retrofit repayment period <span class="arithmatex">\({\tau^{\text{retrofit}}}_{n,i,r_0,y}\)</span>. In the current implementation, repayment period <span class="arithmatex">\({\tau^{\text{retrofit}}}_{n,i,r_0,y}\)</span> is the remaining lifetime at vintage year <span class="arithmatex">\(y\)</span>, bounded below by 1 year, and <span class="arithmatex">\(y^*\)</span> denotes the simulation year:</p>
+<div class="arithmatex">\[
+{\tau^{\text{retrofit}}}_{n,i,r_0,y}
+= \max \left(1,\ \tau_{n,i,r_0} - \left(y^* - y\right)\right)
+\]</div>
+<p>For generators:</p>
+<div class="arithmatex">\[
+{c^{\text{retrofit}}}_{n, i, r_0, r_1, y}
+= {b^{\text{retrofit}}}_{n, i, r_0, r_1}
+\cdot
+\frac{\alpha_{n, i, r_1}\cdot \left(1+\alpha_{n, i, r_1}\right)^{{\tau^{\text{retrofit}}}_{n,i,r_0,y}}}
+{\left(1+\alpha_{n, i, r_1}\right)^{{\tau^{\text{retrofit}}}_{n,i,r_0,y}}-1}
+\cdot \Delta y
+\]</div>
+<details>
+<summary><b>Parameters used in Annualization of capital costs</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(b^{\text{new}}_{n,i,r}\)</span></td>
+<td><code>gcc(N,I,R)</code></td>
+<td>Initial capital cost for generator new installation (before annualization)</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(b^{\text{retrofit}}_{n,i,r_0,r_1}\)</span></td>
+<td><code>grc(N,I,R0,R1)</code></td>
+<td>Initial retrofit cost for generator transition</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(b^{\text{replace}}_{n,i,r}\)</span></td>
+<td><code>gpc(N,I,R)</code></td>
+<td>Initial capital cost for generator replacement (before annualization)</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{new}}_{n,i,r}\)</span></td>
+<td><code>gacc(N,I,R)</code></td>
+<td>Annualized capital cost for generator new installation</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{retrofit}}_{n,i,r_0,r_1,y}\)</span></td>
+<td><code>garc(N,I,R0,R1,Y)</code></td>
+<td>Annualized retrofit cost of generator</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c^{\text{replace}}_{n,i,r}\)</span></td>
+<td><code>gapc(N,I,R)</code></td>
+<td>Annualized replacement cost of generator</td>
+<td>million USD/GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\alpha_{n,i,r}\)</span></td>
+<td><code>galp(N,I,R)</code></td>
+<td>Discount rate for generator</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\tau_{n,i,r}\)</span></td>
+<td><code>glt(N,I,R)</code></td>
+<td>Lifetime of generator</td>
+<td>years</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\({\tau^{\text{retrofit}}}_{n,i,r_0,y}\)</span></td>
+<td><code>grt(N,I,R0,Y)</code></td>
+<td>Retrofit repayment period used for annualization</td>
+<td>years</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Delta y\)</span></td>
+<td><code>t_int</code></td>
+<td>Time interval between simulation years</td>
+<td>years</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="generator-operation-capacity">Generator operation &amp; capacity</h2>
+<h3 id="minimummaximum-operation-of-generator">Minimum/Maximum operation of generator</h3>
+<p>The output of each generator is bounded by its installed capacity and technology-specific dispatch limits.
+The coefficients <span class="arithmatex">\({\gamma^{\min}}_{n,i,r,t}\)</span> and <span class="arithmatex">\({\gamma^{\max}}_{n,i,r,t}\)</span> scale installed capacity into lower and upper dispatch bounds for each timeslice.</p>
+<div class="arithmatex">\[
+{{\gamma^{\min}}}_{n, i, r, t} \cdot {VS}_{n, i, r} \leq {VX}_{n, i, r, t} \leq {{\gamma^{\max}}}_{n, i, r, t} \cdot {VS}_{n, i, r}
+\]</div>
+<details>
+<summary><b>Parameters used in Minimum/Maximum operation</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\min}_{n,i,r,t}\)</span></td>
+<td><code>gmn(N,I,R,T)</code></td>
+<td>Minimum output factor of generator</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\max}_{n,i,r,t}\)</span></td>
+<td><code>gmx(N,I,R,T)</code></td>
+<td>Maximum output factor (availability)</td>
+<td>0-1</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Minimum/Maximum operation</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,r,t}\)</span></td>
+<td><code>VG(N,I,R,T)</code></td>
+<td>Power output of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,r}\)</span></td>
+<td><code>VGS(N,I,R)</code></td>
+<td>Installed capacity of generator</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Handling of curtailment</p>
+<p>For non-dispatchable generators such as wind and solar, <span class="arithmatex">\({VX}_{n,i,r,t}\)</span> represents actual generation, which may be less than potential generation <span class="arithmatex">\({{\gamma^{\max}}}_{n,i,r,t} \cdot {VS}_{n,i,r}\)</span> due to economic curtailment. The curtailed capacity is calculated in postprocessing as <span class="arithmatex">\({{\gamma^{\max}}}_{n,i,r,t} \cdot {VS}_{n,i,r} - {VX}_{n,i,r,t}\)</span>.</p>
+</div>
+<h3 id="ramping-constraints-optional">Ramping constraints (optional)</h3>
+<p>Ramp-up and ramp-down constraints limit the rate of change of generator output between adjacent timeslices <span class="arithmatex">\(t\)</span> and <span class="arithmatex">\(t'\)</span>.
+These constraints are written on differences between consecutive dispatch levels and therefore couple generator operation across time.</p>
+<div class="arithmatex">\[
+ -{{\Delta t}}\cdot {{\rho^{\text{down}}}}_{n,i,r}\cdot {{\gamma^{\max}}}_{n,i,r,t}\cdot {VS}_{n,i,r}
+\leq {VX}_{n,i,r,t'}-{VX}_{n,i,r,t}
+\leq {{\Delta t}}\cdot {{\rho^{\text{up}}}}_{n,i,r}\cdot {{\gamma^{\max}}}_{n,i,r,t}\cdot {VS}_{n,i,r}
+\]</div>
+<details>
+<summary><b>Parameters used in Ramping constraints</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\Delta t\)</span></td>
+<td><code>rt(T)</code></td>
+<td>Timeslice granularity (hours per timeslice)</td>
+<td>hours</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\rho^{\text{up}}_{n,i,r}\)</span></td>
+<td><code>gru(N,I,R)</code></td>
+<td>Ramp-up rate coefficient</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\rho^{\text{down}}_{n,i,r}\)</span></td>
+<td><code>grd(N,I,R)</code></td>
+<td>Ramp-down rate coefficient</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\max}_{n,i,r,t}\)</span></td>
+<td><code>gmx(N,I,R,T)</code></td>
+<td>Maximum output factor</td>
+<td>0-1</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Ramping constraints</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,r,t}\)</span></td>
+<td><code>VG(N,I,R,T)</code></td>
+<td>Power output of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,r}\)</span></td>
+<td><code>VGS(N,I,R)</code></td>
+<td>Installed capacity of generator</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="generation-share-constraints">Generation share constraints</h3>
+<p>The model can impose minimum/maximum generation shares between generator groups. Both sides of the inequality are aggregated dispatch volumes, and coefficients <span class="arithmatex">\({\theta^{\min}}\)</span> and <span class="arithmatex">\({\theta^{\max}}\)</span> define relative lower and upper bounds between the two groups. For two groups <span class="arithmatex">\(m_{r0}\)</span> and <span class="arithmatex">\(m_{r1}\)</span>:</p>
+<div class="arithmatex">\[
+{{\theta^{\min}}}_{n,i,m_{r0},m_{r1}}\cdot \sum_{r\in MR_{m_{r1}}}\sum_{t}{VX}_{n,i,r,t}
+\leq \sum_{r\in MR_{m_{r0}}}\sum_{t}{VX}_{n,i,r,t}
+\leq {{\theta^{\max}}}_{n,i,m_{r0},m_{r1}}\cdot \sum_{r\in MR_{m_{r1}}}\sum_{t}{VX}_{n,i,r,t}
+\]</div>
+<details>
+<summary><b>Parameters used in Generation share constraints</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\theta^{\min}_{n,i,m_{r0},m_{r1}}\)</span></td>
+<td><code>gmmn(N,I,MR0,MR1)</code></td>
+<td>Minimum generation share coefficient</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\theta^{\max}_{n,i,m_{r0},m_{r1}}\)</span></td>
+<td><code>gmmx(N,I,MR0,MR1)</code></td>
+<td>Maximum generation share coefficient</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Generation share constraints</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,r,t}\)</span></td>
+<td><code>VG(N,I,R,T)</code></td>
+<td>Power output of generator</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="capacity-bounds-for-generator">Capacity bounds for generator</h3>
+<p>Installed capacity <span class="arithmatex">\({VS}_{n,i,r}\)</span> of generators is constrained by technology-specific lower and upper bounds <span class="arithmatex">\({\lambda^{\min}}_{n,i,r}\)</span> and <span class="arithmatex">\({\lambda^{\max}}_{n,i,r}\)</span>. These bounds apply directly to stock variable <span class="arithmatex">\({VS}_{n,i,r}\)</span>, whereas the bounds below apply to new-installation variable <span class="arithmatex">\({VR}_{n,i,r}\)</span>.</p>
+<div class="arithmatex">\[
+{{\lambda^{\min}}}_{n, i, r} \leq {VS}_{n, i, r} \leq {{\lambda^{\max}}}_{n, i, r}
+\]</div>
+<p>New installation <span class="arithmatex">\({VR}_{n,i,r}\)</span> is also bounded by <span class="arithmatex">\({\nu^{\min}}_{n,i,r}\)</span> and <span class="arithmatex">\({\nu^{\max}}_{n,i,r}\)</span>:</p>
+<div class="arithmatex">\[
+{{\nu^{\min}}}_{n, i, r} \leq {VR}_{n, i, r} \leq {{\nu^{\max}}}_{n, i, r}
+\]</div>
+<details>
+<summary><b>Parameters used in Capacity bounds</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\lambda^{\min}_{n,i,r}\)</span></td>
+<td><code>gsmn(N,I,R)</code></td>
+<td>Minimum installed capacity</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\lambda^{\max}_{n,i,r}\)</span></td>
+<td><code>gsmx(N,I,R)</code></td>
+<td>Maximum installed capacity</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nu^{\min}_{n,i,r}\)</span></td>
+<td><code>grmn(N,I,R)</code></td>
+<td>Minimum new installation per year</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nu^{\max}_{n,i,r}\)</span></td>
+<td><code>grmx(N,I,R)</code></td>
+<td>Maximum new installation per year</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Capacity bounds</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,r}\)</span></td>
+<td><code>VGS(N,I,R)</code></td>
+<td>Installed capacity of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{n,i,r}\)</span></td>
+<td><code>VGR(N,I,R)</code></td>
+<td>New installation of generator</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="link-operation-capacity">Link operation &amp; capacity</h2>
+<h3 id="link-flow-operation">Link flow operation</h3>
+<p>Energy flows <span class="arithmatex">\({VX}^{+}_{l,t}\)</span> and <span class="arithmatex">\({VX}^{-}_{l,t}\)</span> via each link are bounded by installed capacity <span class="arithmatex">\({VS}_{l}\)</span> and dispatch-limit coefficients <span class="arithmatex">\({\gamma^{\min}_{+}}_{l,t}\)</span>, <span class="arithmatex">\({\gamma^{\max}_{+}}_{l,t}\)</span>, <span class="arithmatex">\({\gamma^{\min}_{-}}_{l,t}\)</span>, and <span class="arithmatex">\({\gamma^{\max}_{-}}_{l,t}\)</span>. Forward and backward flows are treated separately to represent lossy transport<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, and the two directional flow variables make it possible to represent asymmetric conversion or transport behavior while keeping the formulation linear.</p>
+<div class="arithmatex">\[
+{{\gamma^{\min}_{+}}}_{l, t} \cdot {VS}_{l} \leq {VX}^{+}_{l, t} \leq {{\gamma^{\max}_{+}}}_{l, t} \cdot {VS}_{l}
+\]</div>
+<div class="arithmatex">\[
+{{\gamma^{\min}_{-}}}_{l, t} \cdot {VS}_{l} \leq {VX}^{-}_{l, t} \leq {{\gamma^{\max}_{-}}}_{l, t} \cdot {VS}_{l}
+\]</div>
+<p>Fixed flows can be represented by setting bounds equal:</p>
+<div class="arithmatex">\[
+{VX}^{+}_{l,t} = {{\gamma^{\text{fix}}_{+}}}_{l,t}\cdot {VS}_{l},\qquad {VX}^{-}_{l,t} = {{\gamma^{\text{fix}}_{-}}}_{l,t}\cdot {VS}_{l}
+\]</div>
+<details>
+<summary><b>Parameters used in Link flow operation</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\min}_{+,l,t}\)</span></td>
+<td><code>ffmn(L,T)</code></td>
+<td>Minimum forward flow factor</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\max}_{+,l,t}\)</span></td>
+<td><code>ffmx(L,T)</code></td>
+<td>Maximum forward flow factor</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\min}_{-,l,t}\)</span></td>
+<td><code>fbmn(L,T)</code></td>
+<td>Minimum backward flow factor</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\max}_{-,l,t}\)</span></td>
+<td><code>fbmx(L,T)</code></td>
+<td>Maximum backward flow factor</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\text{fix}}_{+,l,t}\)</span></td>
+<td><code>fffx(L,T)</code></td>
+<td>Fixed forward flow factor</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma^{\text{fix}}_{-,l,t}\)</span></td>
+<td><code>fbfx(L,T)</code></td>
+<td>Fixed backward flow factor</td>
+<td>0-1</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Link flow operation</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VX^{+}_{l,t}\)</span></td>
+<td><code>VFF(L,T)</code></td>
+<td>Forward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX^{-}_{l,t}\)</span></td>
+<td><code>VFB(L,T)</code></td>
+<td>Backward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{l}\)</span></td>
+<td><code>VFS(L)</code></td>
+<td>Installed capacity of link</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Bidirectional links and Unidirectional links</p>
+<p>Links are classified as either <strong>bidirectional links</strong>, such as inverters, or <strong>unidirectional links</strong>, such as electrolysers. For unidirectional links, <span class="arithmatex">\({{\gamma^{\max}_{-}}}_{l,t} = 0\)</span>, restricting energy flow to one direction only.</p>
+</div>
+<h3 id="link-capacity-bounds">Link capacity bounds</h3>
+<p>Installed link capacity <span class="arithmatex">\({VS}_{l}\)</span> is constrained by lower and upper bounds <span class="arithmatex">\({\lambda^{\min}}_{l}\)</span> and <span class="arithmatex">\({\lambda^{\max}}_{l}\)</span>. As with generators, link stock bounds and link new-installation bounds are imposed separately:</p>
+<div class="arithmatex">\[
+{{\lambda^{\min}}}_{l} \leq {VS}_{l} \leq {{\lambda^{\max}}}_{l}
+\]</div>
+<p>New installation <span class="arithmatex">\({VR}_{l}\)</span> is constrained by <span class="arithmatex">\({\nu^{\min}}_{l}\)</span> and <span class="arithmatex">\({\nu^{\max}}_{l}\)</span>:</p>
+<div class="arithmatex">\[
+{{\nu^{\min}}}_{l} \leq {VR}_{l} \leq {{\nu^{\max}}}_{l}
+\]</div>
+<details>
+<summary><b>Parameters used in Link capacity bounds</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\lambda^{\min}_{l}\)</span></td>
+<td><code>fsmn(L)</code></td>
+<td>Minimum link capacity</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\lambda^{\max}_{l}\)</span></td>
+<td><code>fsmx(L)</code></td>
+<td>Maximum link capacity</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nu^{\min}_{l}\)</span></td>
+<td><code>frmn(L)</code></td>
+<td>Minimum new installation per year</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nu^{\max}_{l}\)</span></td>
+<td><code>frmx(L)</code></td>
+<td>Maximum new installation per year</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Link capacity bounds</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VS_{l}\)</span></td>
+<td><code>VFS(L)</code></td>
+<td>Installed capacity of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{l}\)</span></td>
+<td><code>VFR(L)</code></td>
+<td>New installation of link</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="link-contribution-share-constraints">Link contribution share constraints</h3>
+<p>The model can impose constraints on the contribution of link groups to nodal flows. Share coefficients <span class="arithmatex">\(\theta^{\min}_{n,i,m_{l0},m_{l1}}\)</span> and <span class="arithmatex">\(\theta^{\max}_{n,i,m_{l0},m_{l1}}\)</span> compare incidence-weighted contributions of two link groups <span class="arithmatex">\(m_{l0}\)</span> and <span class="arithmatex">\(m_{l1}\)</span>. The grouped quantities below are not raw link flows <span class="arithmatex">\({VX}^{+}_{l,t}, {VX}^{-}_{l,t}\)</span> but nodal contributions after applying incidence coefficients <span class="arithmatex">\({k^{+}}_{n,i,l}\)</span>, <span class="arithmatex">\({k^{-}}_{n,i,l}\)</span>, <span class="arithmatex">\({k^{+}}_{n,i,l,t}\)</span>, and <span class="arithmatex">\({k^{-}}_{n,i,l,t}\)</span>:</p>
+<div class="arithmatex">\[
+\theta^{\min}_{n,i,m_{l0},m_{l1}}\cdot
+\sum_{l\in ML_{n,i,m_{l1}}}\sum_{t}
+\left(
+-{k^{+}}_{n,i,l}\cdot {VX}^{+}_{l,t}
++{k^{-}}_{n,i,l}\cdot {VX}^{-}_{l,t}
+-{k^{+}}_{n,i,l,t}\cdot {VX}^{+}_{l,t}
++{k^{-}}_{n,i,l,t}\cdot {VX}^{-}_{l,t}
+\right)
+\leq
+\sum_{l\in ML_{n,i,m_{l0}}}\sum_{t}
+\left(
+-{k^{+}}_{n,i,l}\cdot {VX}^{+}_{l,t}
++{k^{-}}_{n,i,l}\cdot {VX}^{-}_{l,t}
+-{k^{+}}_{n,i,l,t}\cdot {VX}^{+}_{l,t}
++{k^{-}}_{n,i,l,t}\cdot {VX}^{-}_{l,t}
+\right)
+\leq
+\theta^{\max}_{n,i,m_{l0},m_{l1}}\cdot
+\sum_{l\in ML_{n,i,m_{l1}}}\sum_{t}
+\left(
+-{k^{+}}_{n,i,l}\cdot {VX}^{+}_{l,t}
++{k^{-}}_{n,i,l}\cdot {VX}^{-}_{l,t}
+-{k^{+}}_{n,i,l,t}\cdot {VX}^{+}_{l,t}
++{k^{-}}_{n,i,l,t}\cdot {VX}^{-}_{l,t}
+\right)
+\]</div>
+<p>Incidence matrix coefficients <span class="arithmatex">\({k^{+}}_{n,i,l}\)</span> and <span class="arithmatex">\({k^{-}}_{n,i,l}\)</span> encode both network topology and link efficiency for forward and backward directions. These coefficients are constructed from link efficiency and topology information.
+With this convention, the same link-flow variables can be interpreted consistently in both the nodal balance and link-share constraints.</p>
+<ul>
+<li>
+<p><strong>Forward flow incidence matrix</strong>: <span class="arithmatex">\({k^{+}}_{n,i,l}\)</span> represents the contribution of forward flow via link <span class="arithmatex">\(l\)</span> to node-sector pair <span class="arithmatex">\({n,i}\)</span></p>
+<ul>
+<li>Source node (<code>N0</code>, <code>I0</code>): <span class="arithmatex">\({k^{+}}_{n_0,i_0,l} = 1\)</span> (energy leaves the node)</li>
+<li>Destination node (<code>N1</code>, <code>I1</code>): <span class="arithmatex">\({k^{+}}_{n_1,i_1,l} = -\eta_l\)</span></li>
+<li>Unconnected nodes: <span class="arithmatex">\({k^{+}}_{n,i,l} = 0\)</span></li>
+</ul>
+</li>
+<li>
+<p><strong>Backward flow incidence matrix</strong>: <span class="arithmatex">\({k^{-}}_{n,i,l}\)</span> represents the contribution of backward flow via link <span class="arithmatex">\(l\)</span> to node-sector pair <span class="arithmatex">\({n,i}\)</span></p>
+<ul>
+<li>Source node (<code>N0</code>, <code>I0</code>): <span class="arithmatex">\({k^{-}}_{n_0,i_0,l} = \eta_l\)</span></li>
+<li>Destination node (<code>N1</code>, <code>I1</code>): <span class="arithmatex">\({k^{-}}_{n_1,i_1,l} = -1\)</span> (energy arrives at the node)</li>
+<li>Unconnected nodes: <span class="arithmatex">\({k^{-}}_{n,i,l} = 0\)</span></li>
+</ul>
+</li>
+</ul>
+<details>
+<summary><b>Parameters used in Link contribution share constraints</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(ML_{n,i,m_l,l}\)</span></td>
+<td><code>M_IMLL(N,I,ML,L)</code></td>
+<td>Mapping from link-technology group to active links at node-sector pair</td>
+<td>binary</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{+}_{n,i,l}\)</span></td>
+<td><code>kff(N,I,L)</code></td>
+<td>Incidence matrix for forward flow</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{-}_{n,i,l}\)</span></td>
+<td><code>kbf(N,I,L)</code></td>
+<td>Incidence matrix for backward flow</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{+}_{n,i,l,t}\)</span></td>
+<td><code>kffv(N,I,L,T)</code></td>
+<td>Time-dependent incidence matrix for forward flow</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{-}_{n,i,l,t}\)</span></td>
+<td><code>kbfv(N,I,L,T)</code></td>
+<td>Time-dependent incidence matrix for backward flow</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\theta^{\min}_{n,i,m_{l0},m_{l1}}\)</span></td>
+<td><code>fmmn(N,I,ML_0,ML_1)</code></td>
+<td>Minimum link group share coefficient</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\theta^{\max}_{n,i,m_{l0},m_{l1}}\)</span></td>
+<td><code>fmmx(N,I,ML_0,ML_1)</code></td>
+<td>Maximum link group share coefficient</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Link contribution share constraints</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VX^{+}_{l,t}\)</span></td>
+<td><code>VFF(L,T)</code></td>
+<td>Forward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX^{-}_{l,t}\)</span></td>
+<td><code>VFB(L,T)</code></td>
+<td>Backward energy flow via link</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="storage-operation-capacity">Storage operation &amp; capacity</h2>
+<h3 id="minimummaximum-operation-of-storage">Minimum/Maximum operation of storage</h3>
+<p>Storage operation involves charge/discharge power <span class="arithmatex">\({VX}_{n,i,s,t}\)</span> and energy level <span class="arithmatex">\({VE}_{n,i,s,t}\)</span>. Power <span class="arithmatex">\({VX}_{n,i,s,t}\)</span> governs instantaneous charging or discharging, while energy level <span class="arithmatex">\({VE}_{n,i,s,t}\)</span> tracks the intertemporal state of charge.</p>
+<div class="arithmatex">\[
+-\infty &lt; {VX}_{n, i, s, t} &lt; +\infty
+\]</div>
+<div class="arithmatex">\[
+{{\xi^{\min}}}_{n, i, s, t} \cdot {VS}_{n, i, s} \leq {VE}_{n, i, s, t} \leq {{\xi^{\max}}}_{n, i, s, t} \cdot {VS}_{n, i, s}
+\]</div>
+<details>
+<summary><b>Parameters used in Minimum/Maximum operation of storage</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\xi^{\min}_{n,i,s,t}\)</span></td>
+<td><code>emn(N,I,S,T)</code></td>
+<td>Minimum energy level factor</td>
+<td>0-1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\xi^{\max}_{n,i,s,t}\)</span></td>
+<td><code>emx(N,I,S,T)</code></td>
+<td>Maximum energy level factor</td>
+<td>0-1</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Minimum/Maximum operation of storage</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VE_{n,i,s,t}\)</span></td>
+<td><code>VE(N,I,S,T)</code></td>
+<td>Energy level (state-of-charge) of storage, constrained by <span class="arithmatex">\(\xi^{\min}/\xi^{\max}\)</span></td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,s}\)</span></td>
+<td><code>VES(N,I,S)</code></td>
+<td>Installed energy capacity of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,s,t}\)</span></td>
+<td><code>VH(N,I,S,T)</code></td>
+<td>Charge/discharge power (unbounded: <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span>; positive: discharge)</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="storage-capacity-bounds">Storage capacity bounds</h3>
+<p>Installed energy capacity <span class="arithmatex">\({VS}_{n,i,s}\)</span> of storage is constrained by lower and upper bounds <span class="arithmatex">\({\lambda^{\min}}_{n,i,s}\)</span> and <span class="arithmatex">\({\lambda^{\max}}_{n,i,s}\)</span>. These bounds apply to energy-capacity stock <span class="arithmatex">\({VS}_{n,i,s}\)</span> rather than to charge/discharge power <span class="arithmatex">\({VX}_{n,i,s,t}\)</span>.</p>
+<div class="arithmatex">\[
+{{\lambda^{\min}}}_{n, i, s} \leq {VS}_{n, i, s} \leq {{\lambda^{\max}}}_{n, i, s}
+\]</div>
+<p>New installation <span class="arithmatex">\({VR}_{n,i,s}\)</span> is constrained by <span class="arithmatex">\({\nu^{\min}}_{n,i,s}\)</span> and <span class="arithmatex">\({\nu^{\max}}_{n,i,s}\)</span>.</p>
+<div class="arithmatex">\[
+{{\nu^{\min}}}_{n, i, s} \leq {VR}_{n, i, s} \leq {{\nu^{\max}}}_{n, i, s}
+\]</div>
+<details>
+<summary><b>Parameters used in Storage capacity bounds</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\lambda^{\min}_{n,i,s}\)</span></td>
+<td><code>esmn(N,I,S)</code></td>
+<td>Minimum installed energy capacity</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\lambda^{\max}_{n,i,s}\)</span></td>
+<td><code>esmx(N,I,S)</code></td>
+<td>Maximum installed energy capacity</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nu^{\min}_{n,i,s}\)</span></td>
+<td><code>ermn(N,I,S)</code></td>
+<td>Minimum new installation</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nu^{\max}_{n,i,s}\)</span></td>
+<td><code>ermx(N,I,S)</code></td>
+<td>Maximum new installation</td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Storage capacity bounds</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,s}\)</span></td>
+<td><code>VES(N,I,S)</code></td>
+<td>Installed energy capacity of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{n,i,s}\)</span></td>
+<td><code>VER(N,I,S)</code></td>
+<td>New installation of storage</td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="time-series-state-of-charge-of-storage">Time-series state of charge of storage</h3>
+<p>Energy level <span class="arithmatex">\({VE}_{n,i,s,t}\)</span> at each timeslice depends on the energy level at the previous timeslice, self-discharge, and charge/discharge power <span class="arithmatex">\({VX}_{n,i,s,t}\)</span> during the current timeslice. This equation is the intertemporal coupling condition for storage and determines how operation in one timeslice affects the feasible state in the next.</p>
+<div class="arithmatex">\[
+{VE}_{n, i, s, t} =  {{\eta}_{n, i, s}}^{{{\Delta t}}} \cdot {VE}_{n, i, s, t-1} - {{\Delta t}} \cdot {VX}_{n, i, s, t}
+\]</div>
+<p>With the sign convention used here, positive <span class="arithmatex">\({VX}_{n,i,s,t}\)</span> decreases stored energy, while negative values represent charging and increase the energy level.</p>
+<details>
+<summary><b>Parameters used in Time-series state of charge of storage</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\eta_{n,i,s}\)</span></td>
+<td><code>eeta(N,I,S)</code></td>
+<td>Self-discharge rate per hour</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Delta t\)</span></td>
+<td><code>rt(T)</code></td>
+<td>Timeslice granularity (hours per timeslice)</td>
+<td>hours</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Time-series state of charge of storage</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VE_{n,i,s,t}\)</span></td>
+<td><code>VE(N,I,S,T)</code></td>
+<td>Energy level (state-of-charge) of storage, bounded by <span class="arithmatex">\(\xi^{\min}/\xi^{\max}\)</span></td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,s,t}\)</span></td>
+<td><code>VH(N,I,S,T)</code></td>
+<td>Charge/discharge power (unbounded; positive: discharge, negative: charging)</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Cyclic boundary condition</p>
+<p>This constraint enforces that the energy level at the first timeslice (<span class="arithmatex">\(t_1\)</span>) equals the energy level at the last timeslice (<span class="arithmatex">\(t_{|T|}\)</span>), ensuring cyclic operation across the modeled period. This prevents the model from arbitrarily draining or filling storage between simulation years, maintaining inter-annual consistency.</p>
+<div class="arithmatex">\[
+{VE}_{n, i, s, t_1} = {VE}_{n, i, s, t_{|T|}}
+\]</div>
+</div>
+<h3 id="power-energy-capacity-of-storage">Power-Energy capacity of storage</h3>
+<p>Some storage technologies, such as pumped hydro storage, relate link power capacity <span class="arithmatex">\({VS}_{l}\)</span>, for example pump or turbine capacity, to storage energy capacity <span class="arithmatex">\({VS}_{n,i,s}\)</span>, for example reservoir capacity. For each associated link <span class="arithmatex">\(l\)</span>:</p>
+<div class="arithmatex">\[
+{VS}_{l} = \sum_{(n,i,s)\in ISL_l} {{\chi}_{n,i,s,l}}\cdot {VS}_{n,i,s}
+\]</div>
+<p>where <span class="arithmatex">\(ISL_l\)</span> is the set of storage technology instances <span class="arithmatex">\({n,i,s}\)</span> related to link <span class="arithmatex">\(l\)</span>.</p>
+<details>
+<summary><b>Parameters used in Power-Energy capacity of storage</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\chi_{n,i,s,l}\)</span></td>
+<td><code>ecrt(N,I,S,L)</code></td>
+<td>Power-to-energy ratio</td>
+<td>GW/GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Power-Energy capacity of storage</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VS_{l}\)</span></td>
+<td><code>VFS(L)</code></td>
+<td>Installed capacity of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,s}\)</span></td>
+<td><code>VES(N,I,S)</code></td>
+<td>Installed energy capacity of storage</td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="nodal-power-balance">Nodal power balance</h2>
+<p>The nodal power balance ensures supply equals demand at each node for each timeslice group. Generator output <span class="arithmatex">\({VX}_{n,i,r,t}\)</span>, storage power <span class="arithmatex">\({VX}_{n,i,s,t}\)</span>, and net link contributions are aggregated on the left-hand side and matched to exogenous demand <span class="arithmatex">\({d}_{n,i,MT}\)</span> and slack <span class="arithmatex">\(\delta_{n,i,MT}\)</span> on the right-hand side.</p>
+<div class="arithmatex">\[
+\sum_{r}\sum_{t\in MT}{VX}_{n,i,r,t}+\sum_{s}\sum_{t\in MT}{VX}_{n,i,s,t}
+-\sum_{l}\sum_{t\in MT}{k^{+}}_{n,i,l}{VX}^{+}_{l,t}
++\sum_{l}\sum_{t\in MT}{k^{-}}_{n,i,l}{VX}^{-}_{l,t}
+-\sum_{l}\sum_{t\in MT}{k^{+}}_{n,i,l,t}{VX}^{+}_{l,t}
++\sum_{l}\sum_{t\in MT}{k^{-}}_{n,i,l,t}{VX}^{-}_{l,t}
+= {d}_{n,i,MT}+\delta_{n,i,MT}
+\]</div>
+<p>On the left-hand side, <span class="arithmatex">\(\sum_{r}\sum_{t\in MT}{VX}_{n,i,r,t}\)</span> aggregates generator output, <span class="arithmatex">\(\sum_{s}\sum_{t\in MT}{VX}_{n,i,s,t}\)</span> aggregates storage discharge and charge power, and the incidence-weighted link terms represent net imports and exports via links. On the right-hand side, exogenous demand <span class="arithmatex">\({d}_{n,i,MT}\)</span> is balanced by slack <span class="arithmatex">\(\delta_{n,i,MT}\)</span> when residual imbalance is allowed.</p>
+<details>
+<summary><b>Parameters used in Nodal power balance</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\({d}_{n,i,MT}\)</span></td>
+<td><code>dmd(N,I,MT)</code></td>
+<td>Exogenous demand for power (timeslice-group aggregated)</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{+}_{n,i,l}\)</span></td>
+<td><code>kff(N,I,L)</code></td>
+<td>Incidence matrix for forward link flows</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{-}_{n,i,l}\)</span></td>
+<td><code>kbf(N,I,L)</code></td>
+<td>Incidence matrix for backward link flows</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{+}_{n,i,l,t}\)</span></td>
+<td><code>kffv(N,I,L,T)</code></td>
+<td>Time-dependent incidence matrix for forward link flows</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k^{-}_{n,i,l,t}\)</span></td>
+<td><code>kbfv(N,I,L,T)</code></td>
+<td>Time-dependent incidence matrix for backward link flows</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Nodal power balance</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,r,t}\)</span></td>
+<td><code>VG(N,I,R,T)</code></td>
+<td>Power output of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,s,t}\)</span></td>
+<td><code>VH(N,I,S,T)</code></td>
+<td>Storage charge/discharge power</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX^{+}_{l,t}\)</span></td>
+<td><code>VFF(L,T)</code></td>
+<td>Forward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX^{-}_{l,t}\)</span></td>
+<td><code>VFB(L,T)</code></td>
+<td>Backward energy flow via link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta_{n,i,MT}\)</span></td>
+<td><code>RES_NPB(N,I,MT)</code></td>
+<td>Slack variable for nodal power balance</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Timeslice aggregation</p>
+<p>The constraint aggregates over timeslice group <span class="arithmatex">\(MT\)</span> rather than individual timeslices <span class="arithmatex">\(t\)</span>, allowing flexibility in temporal resolution. Common groupings:</p>
+<ul>
+<li><span class="arithmatex">\(MT\)</span> = {all timeslices}: annual energy balance</li>
+<li><span class="arithmatex">\(MT\)</span> = {single timeslice <span class="arithmatex">\(t\)</span>}: hourly or sub-hourly balances</li>
+</ul>
+<p>This design enables the model to enforce balances at different temporal scales depending on the application.</p>
+</div>
+<h2 id="technology-stock">Technology stock</h2>
+<p>Installed capacity <span class="arithmatex">\({VS}\)</span> comprises new installations <span class="arithmatex">\({VR}\)</span>, replacements <span class="arithmatex">\({VP}\)</span>, surviving vintage stock <span class="arithmatex">\({sc}\)</span>, net retrofit inflows and outflows <span class="arithmatex">\({VC}\)</span>, and stock-balance slack <span class="arithmatex">\(\delta^{\text{stock}}\)</span>. The stock-balance equations link operationally relevant stock variables to investment decisions and surviving historical vintages. For generators:</p>
+<div class="arithmatex">\[
+{VS}_{n,i,r}
+= ({VR}_{n,i,r}+{VP}_{n,i,r})\cdot \Delta y
++ \sum_{y}\left(
+{sc}_{n,i,r,y}
++ \sum_{r_0:\,RC_{r_0,r}} {VC}_{n,i,r_0,r,y}
+- \sum_{r_1:\,RC_{r,r_1}} {VC}_{n,i,r,r_1,y}
+\right)
+- {\delta^{\text{stock}}}_{n,i,r}
+\]</div>
+<p>Analogously, links and storage satisfy:</p>
+<div class="arithmatex">\[
+{VS}_{l}
+= ({VR}_{l}+{VP}_{l})\cdot \Delta y
++ \sum_{y}\left(
+{sc}_{l,y}
++ \sum_{l_0:\,LC_{l_0,l}} {VC}_{l_0,l,y}
+- \sum_{l_1:\,LC_{l,l_1}} {VC}_{l,l_1,y}
+\right)
+- {\delta^{\text{stock}}}_{l}
+\]</div>
+<div class="arithmatex">\[
+{VS}_{n,i,s}
+= ({VR}_{n,i,s}+{VP}_{n,i,s})\cdot \Delta y
++ \sum_{y}\left(
+{sc}_{n,i,s,y}
++ \sum_{s_0:\,SC_{s_0,s}} {VC}_{n,i,s_0,s,y}
+- \sum_{s_1:\,SC_{s,s_1}} {VC}_{n,i,s,s_1,y}
+\right)
+- {\delta^{\text{stock}}}_{n,i,s}
+\]</div>
+<p>Here, <span class="arithmatex">\(RC_{r_0,r_1}\)</span>, <span class="arithmatex">\(LC_{l_0,l_1}\)</span>, and <span class="arithmatex">\(SC_{s_0,s_1}\)</span> denote feasible retrofit relations from origin technologies to destination technologies, corresponding directly to <code>M_RC</code>, <code>M_LC</code>, and <code>M_SC</code> in GAMS.</p>
+<p>Replacement capacity <span class="arithmatex">\({VP}_{n,i,r}\)</span> is limited by replaceable stock <span class="arithmatex">\({sr}_{n,i,r}\)</span>. This restriction prevents replacement variable <span class="arithmatex">\({VP}_{n,i,r}\)</span> from exceeding the amount of stock that is eligible for replacement in the modeled year.</p>
+<div class="arithmatex">\[
+{sr}_{n,i,r} \geq {VP}_{n,i,r}
+\]</div>
+<p>Vintage stocks are tracked by year <span class="arithmatex">\(y\)</span>. For generators, replaceable stock <span class="arithmatex">\({sr}_{n,i,r}\)</span> comprises vintages that have reached lifetime <span class="arithmatex">\(\tau_{n,i,r}\)</span>, with age <span class="arithmatex">\(a_y = y^* - y\)</span> and simulation year <span class="arithmatex">\(y^*\)</span>, scaled to the multi-year step:</p>
+<div class="arithmatex">\[
+{sr}_{n,i,r} = \frac{\sum_{y\;:\; a_y \geq {\tau}_{n,i,r}} {sc}_{n,i,r,y}}{\Delta y}
+\]</div>
+<p>When technology retrofit is enabled, aggregated retrofit volume <span class="arithmatex">\(\sum_y {VC}_{n,i,r_0,r_1,y}\)</span> can also be bounded. These bounds act directly on retrofit flow <span class="arithmatex">\({VC}_{n,i,r_0,r_1,y}\)</span> between origin technology <span class="arithmatex">\(r_0\)</span> and destination technology <span class="arithmatex">\(r_1\)</span>. For generators:</p>
+<div class="arithmatex">\[
+{\mu^{\min}}_{n,i,r_0,r_1}
+\leq \sum_y {VC}_{n,i,r_0,r_1,y}
+\leq {\mu^{\max}}_{n,i,r_0,r_1}
+\]</div>
+<p>and analogously for links and storage.</p>
+<details>
+<summary><b>Parameters used in Technology stock</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(sc_{n,i,r,y}\)</span></td>
+<td><code>gssc(N,I,R,Y)</code></td>
+<td>Surviving generator stock by vintage year</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(sc_{l,y}\)</span></td>
+<td><code>fssc(L,Y)</code></td>
+<td>Surviving link stock by vintage year</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(sc_{n,i,s,y}\)</span></td>
+<td><code>essc(N,I,S,Y)</code></td>
+<td>Surviving storage stock by vintage year</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(sr_{n,i,r}\)</span></td>
+<td><code>gssr(N,I,R)</code></td>
+<td>Replaceable generator stock</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(sr_{l}\)</span></td>
+<td><code>fssr(L)</code></td>
+<td>Replaceable link stock</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(sr_{n,i,s}\)</span></td>
+<td><code>essr(N,I,S)</code></td>
+<td>Replaceable storage stock</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu^{\min}_{n,i,r_0,r_1}\)</span></td>
+<td><code>gcmn(N,I,R0,R1)</code></td>
+<td>Minimum generator retrofit volume</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu^{\max}_{n,i,r_0,r_1}\)</span></td>
+<td><code>gcmx(N,I,R0,R1)</code></td>
+<td>Maximum generator retrofit volume</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu^{\min}_{l_0,l_1}\)</span></td>
+<td><code>fcmn(L0,L1)</code></td>
+<td>Minimum link retrofit volume</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu^{\max}_{l_0,l_1}\)</span></td>
+<td><code>fcmx(L0,L1)</code></td>
+<td>Maximum link retrofit volume</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu^{\min}_{n,i,s_0,s_1}\)</span></td>
+<td><code>ecmn(N,I,S0,S1)</code></td>
+<td>Minimum storage retrofit volume</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu^{\max}_{n,i,s_0,s_1}\)</span></td>
+<td><code>ecmx(N,I,S0,S1)</code></td>
+<td>Maximum storage retrofit volume</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\tau_{n,i,r}\)</span></td>
+<td><code>glt(N,I,R)</code></td>
+<td>Lifetime of generator</td>
+<td>years</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\tau_{l}\)</span></td>
+<td><code>flt(L)</code></td>
+<td>Lifetime of link</td>
+<td>years</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\tau_{n,i,s}\)</span></td>
+<td><code>elt(N,I,S)</code></td>
+<td>Lifetime of storage</td>
+<td>years</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Delta y\)</span></td>
+<td><code>t_int</code></td>
+<td>Time interval between simulation years</td>
+<td>years</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Technology stock</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,r}\)</span></td>
+<td><code>VGS(N,I,R)</code></td>
+<td>Installed capacity of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{n,i,r}\)</span></td>
+<td><code>VGR(N,I,R)</code></td>
+<td>New installation of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VC_{n,i,r_0,r_1,y}\)</span></td>
+<td><code>VGC(N,I,R0,R1,Y)</code></td>
+<td>Generator retrofit volume</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{n,i,r}\)</span></td>
+<td><code>VGP(N,I,R)</code></td>
+<td>Replacement capacity of generator</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta^{\text{stock}}_{n,i,r}\)</span></td>
+<td><code>RES_GSCB(N,I,R)</code></td>
+<td>Generator stock-balance slack</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{l}\)</span></td>
+<td><code>VFS(L)</code></td>
+<td>Installed capacity of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{l}\)</span></td>
+<td><code>VFR(L)</code></td>
+<td>New installation of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VC_{l_0,l_1,y}\)</span></td>
+<td><code>VFC(L0,L1,Y)</code></td>
+<td>Link retrofit volume</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{l}\)</span></td>
+<td><code>VFP(L)</code></td>
+<td>Replacement capacity of link</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta^{\text{stock}}_{l}\)</span></td>
+<td><code>RES_FSCB(L)</code></td>
+<td>Link stock-balance slack</td>
+<td>GW</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VS_{n,i,s}\)</span></td>
+<td><code>VES(N,I,S)</code></td>
+<td>Installed energy capacity of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VR_{n,i,s}\)</span></td>
+<td><code>VER(N,I,S)</code></td>
+<td>New installation of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VC_{n,i,s_0,s_1,y}\)</span></td>
+<td><code>VEC(N,I,S0,S1,Y)</code></td>
+<td>Storage retrofit volume</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{n,i,s}\)</span></td>
+<td><code>VEP(N,I,S)</code></td>
+<td>Replacement capacity of storage</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta^{\text{stock}}_{n,i,s}\)</span></td>
+<td><code>RES_ESCB(N,I,S)</code></td>
+<td>Storage stock-balance slack</td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="energy-supply">Energy supply</h2>
+<p>Energy supply <span class="arithmatex">\({VP}_{n,i,k}\)</span> tracks primary energy consumption or fuel use. Annual energy supply <span class="arithmatex">\({VP}_{n,i,k}\)</span> is obtained by converting generator dispatch <span class="arithmatex">\({VX}_{n,i,r,t}\)</span> into energy type <span class="arithmatex">\(k\)</span> with coefficient <span class="arithmatex">\({\eta}_{n,i,r,k}\)</span> and weighting by timeslice duration.</p>
+<div class="arithmatex">\[
+{VP}_{n, i, k} = \sum_{r,t} {\omega} \cdot {\eta}_{n, i, r, k} \cdot {VX}_{n, i, r, t}
+\]</div>
+<p>Energy supply <span class="arithmatex">\({VP}_{n,i,k}\)</span> is constrained by minimum/maximum bounds or fixed values for aggregated region-sector groups and energy groups. Aggregation sets <span class="arithmatex">\(ME\)</span> and <span class="arithmatex">\(MK\)</span> allow these accounting constraints to be imposed at a level coarser than the base node-sector and energy-type indices.</p>
+<div class="arithmatex">\[
+{p^{\min}}_{m_e,k_m} \leq \sum_{(n,i)\in ME_{m_e}}\sum_{k\in MK_{k_m}} {VP}_{n,i,k}
+\leq {p^{\max}}_{m_e,k_m}
+\]</div>
+<div class="arithmatex">\[
+{p^{\text{fix}}}_{m_e,k_m} = \sum_{(n,i)\in ME_{m_e}}\sum_{k\in MK_{k_m}} {VP}_{n,i,k}
+\]</div>
+<details>
+<summary><b>Parameters used in Energy supply</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\eta_{n,i,r,k}\)</span></td>
+<td><code>geta(N,I,R,K)</code></td>
+<td>Conversion coefficient (energy type <span class="arithmatex">\(k\)</span> per unit output)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega\)</span></td>
+<td><code>wt(T)</code></td>
+<td>Timeslice weight</td>
+<td>hours</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p^{\min}_{m_e,k_m}\)</span></td>
+<td><code>pmin(ME,MK)</code></td>
+<td>Minimum annual energy supply for aggregated group</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p^{\max}_{m_e,k_m}\)</span></td>
+<td><code>pmax(ME,MK)</code></td>
+<td>Maximum annual energy supply for aggregated group</td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p^{\text{fix}}_{m_e,k_m}\)</span></td>
+<td><code>pfix(ME,MK)</code></td>
+<td>Fixed annual energy supply for aggregated group</td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Energy supply</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VP_{n,i,k}\)</span></td>
+<td><code>VP(N,I,K)</code></td>
+<td>Annual energy supply of type <span class="arithmatex">\(k\)</span></td>
+<td>GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VX_{n,i,r,t}\)</span></td>
+<td><code>VG(N,I,R,T)</code></td>
+<td>Power output of generator</td>
+<td>GW</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="emission">Emission</h2>
+<p>Emissions are computed using emission factor <span class="arithmatex">\({\epsilon}_{n,i,k,g}\)</span> and are therefore represented as a post-conversion accounting quantity derived from annual energy supply rather than directly from dispatch.</p>
+<div class="arithmatex">\[
+{VQ}_{n,i,g} = \sum_{k} {{\epsilon}_{n,i,k,g}}\cdot {VP}_{n,i,k}
+\]</div>
+<p>Emission caps limit total emissions <span class="arithmatex">\({VQ}_{n,i,g}\)</span> for aggregated regions and gas groups. As in the energy-supply constraints, aggregation sets determine the level at which these caps are imposed.</p>
+<div class="arithmatex">\[
+\sum_{(n,i)\in MQ_{m_q}}\sum_{g\in MG_{g_m}} {VQ}_{n,i,g} \leq {q^{\max}}_{m_q,g_m}
+\]</div>
+<details>
+<summary><b>Parameters used in Emission</b></summary>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\epsilon_{n,i,k,g}\)</span></td>
+<td><code>gas(N,I,K,G)</code></td>
+<td>Emission factor for energy type <span class="arithmatex">\(k\)</span> and gas <span class="arithmatex">\(g\)</span></td>
+<td>e.g., MtCO₂/GWh</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(q^{\max}_{m_q,g_m}\)</span></td>
+<td><code>qmax(MQ,MG)</code></td>
+<td>Maximum annual emissions for aggregated group</td>
+<td>e.g., MtCO₂</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><b>Decision variables used in Emission</b></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(VQ_{n,i,g}\)</span></td>
+<td><code>VQ(N,I,G)</code></td>
+<td>Annual emissions of type <span class="arithmatex">\(g\)</span></td>
+<td>e.g., MtCO₂</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(VP_{n,i,k}\)</span></td>
+<td><code>VP(N,I,K)</code></td>
+<td>Annual energy supply of type <span class="arithmatex">\(k\)</span></td>
+<td>GWh</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://doi.org/10.1016/j.apenergy.2022.118859">Neumann, F., Hagenmeyer, V. &amp; Brown, T. Assessments of linear power flow and transmission loss approximations in coordinated capacity expansion problems. Appl. Energy 314, 118859 (2022).</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 31, 2026 02:02:04 UTC">March 31, 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 31, 2026 02:02:04 UTC">March 31, 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model structure">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Model structure
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../data/" class="md-footer__link md-footer__link--next" aria-label="Next: Model Data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Model Data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Shotaro Mori, 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/shotaromo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.integrate", "navigation.top", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
