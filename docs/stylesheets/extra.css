@@ -1,3 +1,10 @@
+/* top header / primary color */
+:root {
+    --md-primary-fg-color: #00205b;
+    --md-primary-fg-color--light: #1a3b78;
+    --md-primary-fg-color--dark: #001742;
+}
+
 th, td {
     border: 1px solid var(--md-typeset-table-color);
     border-spacing: 0;
